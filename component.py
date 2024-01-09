@@ -29,3 +29,18 @@ class Component(ABC):
     def name(self) -> str:
         '''Get the name of the component'''
         return self._name
+    @name.setter
+    def name(self, value:str) -> None:
+        '''Set the name of the component'''
+        self._name = value
+
+    @property
+    def price(self) -> float:
+        '''Get the price of the component'''
+        return self._price
+    
+    @price.setter
+    def price(self, value: float) -> None:
+        '''Set the price of the component'''
+        self._price = value
+
