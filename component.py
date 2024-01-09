@@ -44,3 +44,22 @@ class Component(ABC):
         '''Set the price of the component'''
         self._price = value
 
+    @abstractmethod
+    def parse_csv(self, csv_tring: str):
+        '''
+        Parse a CSV string to recreate a component object.
+
+        Parameters:
+        - csv_string (str): The CSV string containing component information.
+
+        Returns:
+        - Component: A new component object.
+        '''
+        pass
+
+
+    @abstractmethod
+    def duplicate(self) -> 'Component':
+        '''Create a duplicate copy of the component.'''
+        pass
+
