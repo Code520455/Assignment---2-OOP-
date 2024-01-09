@@ -21,5 +21,11 @@ class Component(ABC):
     Author: Rahul Saha
     '''
 
-    def __init__(self, name:str,) -> None:
-        super().__init__()
+    def __init__(self, name: str, price: float) -> None:
+        self._name = name 
+        self._price = price
+
+    @property
+    def name(self) -> str:
+        '''Get the name of the component'''
+        return self._name
