@@ -63,3 +63,13 @@ class Component(ABC):
         '''Create a duplicate copy of the component.'''
         pass
 
+    @abstractmethod
+    def display_csv(self) -> str:
+        '''Display the component as a CSV string.'''
+        pass
+    
+
+    @abstractmethod
+    def display_user_friendly(self) -> str:
+        '''Display the component in a user-friendly format.'''
+        pass
