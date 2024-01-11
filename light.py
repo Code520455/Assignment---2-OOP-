@@ -50,3 +50,28 @@ class Light(OutputComponent, ABC):
         - Light: A new light object.
         '''
         pass
+
+
+    @abstractmethod
+    def __eq__(self, other: 'Light') -> bool:
+        '''
+        Compare if two light components are equal.
+
+        Parameters:
+        - other (Light): The other light to compare.
+
+        Returns:
+        - bool: True if the lights are equal, False otherwise.
+        '''
+        pass
+
+
+    @abstractmethod
+    def display_user_friendly(self) -> str:
+        '''Display the light in a user-friendly format.'''
+        pass
+
+    @abstractmethod
+    def display_csv(self) -> str:
+        '''Display the light as a CSV string.'''
+        pass
