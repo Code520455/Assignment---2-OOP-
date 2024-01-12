@@ -7,3 +7,5 @@
 # Email: 520456@learning.eynesbury.edu.au
 # Description: led_light class
 # This is my own work as defined by the Academic Integrity Policy
+
+from light_globe import Light
