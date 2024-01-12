@@ -44,4 +44,17 @@ def load_data() -> Dict[Component, int]:
 
                 elif component_type == "Solar Panel":
                     voltage = float(words[2])
-                    
+                    current = float(words[3])
+                    price = float(words[4])
+                    component = SolarPanel(component_type, voltage, current, price)
+
+                elif component_type == "Battery":
+                    size = words[2]
+                    volatge = float(words[3])
+                    price = float(words[4])
+                    component = Battery(component_type, size, voltage, price)
+
+    except FileNotFoundError:
+        print("File not found: circuits.csv")
+    except Exception as e:
+        print(f"An error occurred while loading data: {e}")
