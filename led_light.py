@@ -9,3 +9,12 @@
 # This is my own work as defined by the Academic Integrity Policy
 
 from light_globe import Light
+class LEDLight(Light):
+    '''
+    Class representing an LED light. This class is a subclass of Light.
+
+    Additional Attributes:
+    - light_type (str): The type of the LED light (e.g., white, red, green, blue, yellow, orange, pink, aqua, violet).
+
+    Author: Rajeswari Roy
+    '''
