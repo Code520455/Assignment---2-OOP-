@@ -24,4 +24,17 @@ class LEDLight(Light):
 
     def duplicate(self) -> 'LEDLight':
         '''Create a duplicate copy of the LED Light'''
-        
+        return LEDLight(self.name, self.price, self.voltage, self.current, self.color)
+    
+    def parse_csv(self, csv_string:str) -> 'LEDLight':
+        '''
+        Parse a CSV string to recreate an LED light object.
+
+        Parameters:
+        - csv_string (str): The CSV string containing LED light information.
+
+        Returns:
+        - LEDLight: A new LED light object.
+        '''
+        name, price, voltage, current, color, light_type = csv_string.split(',')
+        return LEDLight(name, float(price), float(voltage), float(current), color)      
