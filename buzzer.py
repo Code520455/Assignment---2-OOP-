@@ -25,7 +25,7 @@ class Buzzer(OutputComponent):
     - frequency (float): The frequency of the buzzer in Hertz.
     - sound_pressure (float): The sound pressure of the buzzer in decibels.
 
-    Author: Your Name
+    Author: Rajeswari Roy
     '''
 
     def __init__(self, name: str, price: float, voltage: float, current_mA: float, frequency: float,
