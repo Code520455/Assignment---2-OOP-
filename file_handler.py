@@ -28,3 +28,20 @@ def load_data() -> Dict[Component, int]:
     Returns:
     - Dict[Component, int]: A dictionary where keys are Component objects and values are their quantities.
     '''
+    components = {}
+
+    try:
+        with open(FILE_NAME, 'r') as file:
+            for line in file.readlines():
+                words = line.strip().split(",")
+                component = None
+                quantity = int(words[0])
+                component_type = words[1]
+                if component_type == "Wire":
+                    length = float(words[2])
+                    price = float(words[3])
+                    component = Wire(component_type, length, price)
+
+                elif component_type == "Solar Panel":
+                    voltage = float(words[2])
+                    
