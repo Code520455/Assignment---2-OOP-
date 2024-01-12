@@ -18,3 +18,10 @@ class LEDLight(Light):
 
     Author: Rajeswari Roy
     '''
+
+    def __init__(self, name:str, price:float, voltage:float, current_mA: float, color: str):
+        super().__init__(name, price, voltage, current_mA, color)
+
+    def duplicate(self) -> 'LEDLight':
+        '''Create a duplicate copy of the LED Light'''
+        
