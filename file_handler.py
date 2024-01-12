@@ -19,4 +19,12 @@ from switch import Switch
 from sensor import Sensor
 from buzzer import Buzzer
 
+FILE_NAME = "circuits.csv"
 
+def load_data() -> Dict[Component, int]:
+    '''
+    Load data from the circuits.csv file and return a dictionary of components with quantities.
+
+    Returns:
+    - Dict[Component, int]: A dictionary where keys are Component objects and values are their quantities.
+    '''
