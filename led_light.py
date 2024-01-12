@@ -38,3 +38,37 @@ class LEDLight(Light):
         '''
         name, price, voltage, current, color, light_type = csv_string.split(',')
         return LEDLight(name, float(price), float(voltage), float(current), color)      
+    
+    def __eq__(self, other: 'LEDLight') -> bool:
+        '''
+        Compare if two LED light components are equal.
+
+        Parameters:
+        - other (LEDLight): The other LED light to compare.
+
+        Returns:
+        - bool: True if the LED lights are equal, False otherwise.
+        '''
+        return isinstance(other, LEDLight) and \
+            self.name == other.name and \
+            self.price == other.price and \
+            self.voltage == other.voltage and \
+            self.current == other.current and \
+            self.color == other.color
+    
+    def __hash__(self):
+        '''
+        Hash function
+
+        Returns:
+        - Hashing of name
+        '''
+        return hash(self.name)
+
+    def display_user_friendly(self) -> str:
+        '''Display the LED light in a user-friendly format.'''
+        return f"{self.voltage}V {self.current}mA {self.color} {self.name} ${self.price:.2f}"
+
+    def display_csv(self) -> str:
+        '''Display the LED light as a CSV string.'''
+        return f"{self.name},{self.color},{self.voltage},{self.current},{self.price:.2f}"
