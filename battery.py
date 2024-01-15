@@ -22,7 +22,12 @@ class Battery(PowerSupply):
     - price (float): The price of the battery in dollars and cents.
 
     '''
-
+    battery_sizes = ["AA", "AAA", "C", "D", "E"]
+    battery_voltages = {
+        1.2: ["AA", "AAA", "C"],
+        1.5: ["D"],
+        9.0: ["E"]
+    }
     def __init__(self, name: str, size: str, voltage: float, price: float):
         super().__init__(name, price, voltage)
         self._size = size
