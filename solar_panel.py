@@ -53,3 +53,7 @@ class SolarPanel(PowerSupply):
         '''
         name, voltage, current_mA, price = csv_string.split(',')
         return SolarPanel(name, float(voltage), float(current_mA), float(price))
+
+    def calculate_wattage(self) -> float:
+        '''Calculate the wattage of the solar panel.'''
+        return (self.voltage * self.current_mA) / 1000  # Convert milliamps to amps
