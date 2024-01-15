@@ -20,3 +20,11 @@ class LightGlobe(Light):
 
     Author: Rajeswari Roy
     '''
+    light_globe_colors = ["warm", "cool", "neutral"]
+
+    def __init__(self, name: str, price: float, voltage: float, current_mA: float, color: str):
+        super().__init__(name, price, voltage, current_mA, color)
+
+    def duplicate(self) -> 'LightGlobe':
+        '''Create a duplicate copy of the light globe.'''
+        return LightGlobe(self.name, self.price, self.voltage, self.current, self.color)
