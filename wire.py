@@ -53,3 +53,23 @@ class Wire(Component):
         '''
         name, length_mm, price = csv_string.split(',')
         return Wire(name, float(length_mm), float(price))
+    
+    def __hash__(self):
+        '''
+        Hash function
+        
+        Returns:
+        - Hashing of name
+        '''
+        return hash(self.name)
+    
+    def __eq__(self, other: 'Wire') -> bool:
+        '''
+        Compare if two wire components are equal.
+
+        Parameters:
+        - other (Wire): The other wire to compare.
+
+        Returns:
+        - bool: True if the wires are equal, False otherwise.
+        '''
