@@ -41,3 +41,37 @@ class LightGlobe(Light):
         '''
         name, price, voltage, current, color = csv_string.split(',')
         return LightGlobe(name, float(price), float(voltage), float(current), color)
+
+    def __eq__(self, other: 'LightGlobe') -> bool:
+        '''
+        Compare if two light globe components are equal.
+
+        Parameters:
+        - other (LightGlobe): The other light globe to compare.
+
+        Returns:
+        - bool: True if the light globes are equal, False otherwise.
+        '''
+        return isinstance(other, LightGlobe) and \
+            self.name == other.name and \
+            self.price == other.price and \
+            self.voltage == other.voltage and \
+            self.current == other.current and \
+            self.color == other.color
+
+    def __hash__(self):
+        '''
+        Hash function
+
+        Returns:
+        - Hashing of name
+        '''
+        return hash(self.name)
+
+    def display_user_friendly(self) -> str:
+        '''Display the light globe in a user-friendly format.'''
+        return f"{self.voltage}V {self.current}mA {self.color} {self.name} ${self.price:.2f}"
+
+    def display_csv(self) -> str:
+        '''Display the light globe as a CSV string.'''
+        return f"{self.name},{self.color},{self.voltage},{self.current},{self.price:.2f}"
