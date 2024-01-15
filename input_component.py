@@ -38,4 +38,49 @@ class InputComponent(Component, ABC):
     def input_type(self, value: str) -> None:
         '''Set the type of the input component'''
         self._input_type = value
-        
+
+    @property
+    def voltage(self) -> float:
+        '''Get the voltage of the input component.'''
+        return self._voltage
+
+    @voltage.setter
+    def voltage(self, value: float) -> None:
+        '''Set the voltage of the input component.'''
+        self._voltage = value
+
+
+    @abstractmethod
+    def parse_csv(self, csv_string: str) -> 'InputComponent':
+        '''
+        Parse a CSV string to recreate an input component object.
+
+        Parameters:
+        - csv_string (str): The CSV string containing input component information.
+
+        Returns:
+        - InputComponent: A new input component object.
+        '''
+        pass
+
+    @abstractmethod
+    def duplicate(self) -> 'InputComponent':
+        '''Create a duplicate copy of the input component.'''
+        pass
+
+    @abstractmethod
+    def display_csv(self) -> str:
+        '''Display the input component as a CSV string.'''
+        pass
+
+    @abstractmethod
+    def display_user_friendly(self) -> str:
+        '''Display the input component in a user-friendly format.'''
+        pass
+
+
+"""
+Class representing a sensor. This class is a subclass of InputComponent.
+"""
+
+
