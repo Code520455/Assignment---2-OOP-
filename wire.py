@@ -73,3 +73,15 @@ class Wire(Component):
         Returns:
         - bool: True if the wires are equal, False otherwise.
         '''
+        return isinstance(other, Wire) and \
+            self.name == other.name and \
+            self.length_mm == other.length_mm and \
+            self.price == other.price
+    
+    def display_user_friendly(self) -> str:
+        '''Display the wire in a user-friendly format.'''
+        return f"{self.length_mm}mm {self.name} ${self.price:.2f}"
+
+    def display_csv(self) -> str:
+        '''Display the wire as a CSV string.'''
+        return f"{self.name},{self.length_mm},{self.price:.2f}"
