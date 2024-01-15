@@ -9,6 +9,8 @@
 # This is my own work as defined by the Academic Integrity Policy
 
 from light_globe import Light
+
+
 class LEDLight(Light):
     '''
     Class representing an LED light. This class is a subclass of Light.
@@ -19,14 +21,16 @@ class LEDLight(Light):
     Author: Rajeswari Roy
     '''
 
-    def __init__(self, name:str, price:float, voltage:float, current_mA: float, color: str):
+    led_light_colors = ["white", "red", "green", "blue", "yellow", "orange", "pink", "aqua", "violet"]
+
+    def __init__(self, name: str, price: float, voltage: float, current_mA: float, color: str):
         super().__init__(name, price, voltage, current_mA, color)
 
     def duplicate(self) -> 'LEDLight':
-        '''Create a duplicate copy of the LED Light'''
+        '''Create a duplicate copy of the LED light.'''
         return LEDLight(self.name, self.price, self.voltage, self.current, self.color)
-    
-    def parse_csv(self, csv_string:str) -> 'LEDLight':
+
+    def parse_csv(self, csv_string: str) -> 'LEDLight':
         '''
         Parse a CSV string to recreate an LED light object.
 
@@ -36,9 +40,9 @@ class LEDLight(Light):
         Returns:
         - LEDLight: A new LED light object.
         '''
-        name, price, voltage, current, color, light_type = csv_string.split(',')
-        return LEDLight(name, float(price), float(voltage), float(current), color)      
-    
+        name, price, voltage, current, color = csv_string.split(',')
+        return LEDLight(name, float(price), float(voltage), float(current), color)
+
     def __eq__(self, other: 'LEDLight') -> bool:
         '''
         Compare if two LED light components are equal.
@@ -55,7 +59,7 @@ class LEDLight(Light):
             self.voltage == other.voltage and \
             self.current == other.current and \
             self.color == other.color
-    
+
     def __hash__(self):
         '''
         Hash function
