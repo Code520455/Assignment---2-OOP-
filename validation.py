@@ -22,3 +22,11 @@ def str_input(text: str, options: List[str] = []) -> str:
     Returns:
     - str: The user input.
     '''
+    while True:
+        inp = input(text)
+
+        if inp.lower() not in [option.lower() for option in options]:
+            print(f"Wrong input, must be a value from {options}")
+            continue
+        return inp
+    
