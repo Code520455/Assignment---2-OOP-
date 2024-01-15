@@ -28,3 +28,16 @@ class LightGlobe(Light):
     def duplicate(self) -> 'LightGlobe':
         '''Create a duplicate copy of the light globe.'''
         return LightGlobe(self.name, self.price, self.voltage, self.current, self.color)
+
+    def parse_csv(self, csv_string: str) -> 'LightGlobe':
+        '''
+        Parse a CSV string to recreate a light globe object.
+
+        Parameters:
+        - csv_string (str): The CSV string containing light globe information.
+
+        Returns:
+        - LightGlobe: A new light globe object.
+        '''
+        name, price, voltage, current, color = csv_string.split(',')
+        return LightGlobe(name, float(price), float(voltage), float(current), color)
