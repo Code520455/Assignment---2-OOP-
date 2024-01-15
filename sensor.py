@@ -1,4 +1,4 @@
-# File: sensor.py
+ # File: sensor.py
 # Author: RAHUL SAHA
 # ID: 520455
 # Email: 520455@learning.eynesbury.edu.au
@@ -26,7 +26,18 @@ class Sensor(InputComponent):
     sensor_types = ["light", "motion", "infrared", "sound", "touch", "dust", "temperature", "humidity"]
 
     def __init__(self, name: str, price: float, voltage: float, sensor_type: str):
-        super().__init__(name, price, sensor_type, voltage)
+        super().__init__(name, price, voltage)
+        self._sensor_type = sensor_type
+
+
+
+    @property
+    def sensor_type(self):
+        return self._sensor_type
+
+    @sensor_type.setter
+    def sensor_type(self, value):
+        self._sensor_type = value
 
     def duplicate(self) -> 'Sensor':
         '''Create a duplicate copy of the sensor.'''
