@@ -36,4 +36,20 @@ class SolarPanel(PowerSupply):
     def current_mA(self, value:float) -> None:
         '''Set the current of the solar panel'''
         self._current_mA = value
-        
+
+    def duplicate(self) -> 'SolarPanel':
+        '''Create a duplicate copy of the solar panel.'''
+        return SolarPanel(self.name, self.voltage, self.current_mA, self.price)
+
+    def parse_csv(self, csv_string: str) -> 'SolarPanel':
+        '''
+        Parse a CSV string to recreate a solar panel object.
+
+        Parameters:
+        - csv_string (str): The CSV string containing solar panel information.
+
+        Returns:
+        - SolarPanel: A new solar panel object.
+        '''
+        name, voltage, current_mA, price = csv_string.split(',')
+        return SolarPanel(name, float(voltage), float(current_mA), float(price))
