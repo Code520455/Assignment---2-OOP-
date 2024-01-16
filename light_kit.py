@@ -64,4 +64,16 @@ class LightCircuitKit(CircuitKit):
         '''Get the list of switches in the light circuit kit'''
         return self._battery
     
+    @property
+    def wire(self) -> Tuple[Wire, int]:
+        '''Get the list of switches in the light circuit kit'''
+        return self._wire
     
+    def display_unique_colors(self) -> int:
+        '''Get the number of unique colors of lights in the light circuit kit.'''
+        return 1
+
+    def display_number_of_switch(self) -> int:
+        '''Get the number of switches'''
+        return self.switch[1]
+   
