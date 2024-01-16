@@ -96,3 +96,29 @@ class LightCircuitKit(CircuitKit):
         '''
         hash_tuple = (self.name, self._light, self._switch, self._wire, self._battery)
         return hash(hash_tuple)
+
+    def display_details(self) -> str:
+        '''Display the details of the light circuit kit.'''
+        data = f"{self.count} PIECE LIGHT CIRCUIT WITH "
+        data += f"{self._battery[1]} X {self._battery[0].display_user_friendly()} "
+        data += f"{self.light[1]} X {self.light[0].display_user_friendly()} "
+        data += f"{self.switch[1]} X {self.switch[0].display_user_friendly()}"
+        return data
+
+    def display_csv(self) -> str:
+        '''Display the details of the light circuit kit.'''
+        #syntax
+        # 3,Light Circuit,2,Battery,AA,1.5,3.1,4,Light Globe,warm,6.5,240,3.5,14,Wire,60,3.2,1,Switch,push,4.5,4.6
+        # first circuit info
+        data = f"{self.count},Light Circuit,"
+        # battery info
+        data += f"{self._battery[1]},{self._battery[0].display_csv()},"
+        # light info
+        data += f"{self.light[1]},{self.light[0].display_csv()},"
+        # wire info
+        data += f"{self._wire[1]},{self._wire[0].display_csv()},"
+        # switch info
+        data += f"{self.switch[1]},{self.switch[0].display_csv()}"
+        return data
+    
+    
