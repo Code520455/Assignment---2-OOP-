@@ -85,3 +85,56 @@ class App:
                 new_component = self.add_buzzer()
             else:
                 return
+            
+            component = new_component[0]
+            num = new_component[1]
+
+            self.components[component] = num
+            print(f"Added {component.display_user_friendly()} X {num}")
+
+    def view_components(self):
+        while True:
+            print("ALL COMPONENTS")
+            i = 1
+            for key, value in self.components.items():
+                print(f"{i}. {key.display_user_friendly()} X {value}")
+                i += 1
+            print(f"{i}. BACK")
+
+            choice = int_input("Please enter a number:", 1, i)
+            if choice == i:
+                return
+            self.buy_sell_component(choice - 1)
+
+    def buy_sell_component(self, component_number: int):
+
+        component, num = list(self.components.items())[component_number]
+        while True:
+            print(component.display_user_friendly())
+            print("1. BUY")
+            print("2. SELL")
+            print("3. BACK")
+            choice = int_input("Please enter a number: ", 1, 3)
+
+            if choice == 1:
+                print(f"Buying {component.display_user_friendly()}")
+                number_add = int_input(f"Please enter number of {component.display_user_friendly()}: ")
+                self.components[component] += number_add
+                print(f"Bought {component.display_user_friendly()} X {number_add}")
+            elif choice == 2:
+                print(f"Selling {component.display_user_friendly()}")
+                number_sold = int_input(f"Please enter number of {component.display_user_friendly()}: ",
+                                        1, self.components[component])
+                self.components[component] -= number_sold
+                print(f"Sold {component.display_user_friendly()} X {number_sold}")
+            else:
+                return
+
+    def add_wire(self) -> tuple:
+        print("NEW WIRE")
+        length = float_input("Please enter length (mm): ")
+        price = float_input("Please enter price: ")
+        num = int_input("Please enter number of Wires: ")
+        wire = Wire("Wire", length, price)
+
+        return wire, num
