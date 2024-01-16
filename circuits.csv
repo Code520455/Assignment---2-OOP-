@@ -1,0 +1,22 @@
+17,Wire,40.0,2.40
+18,Wire,60.0,3.20
+22,Wire,80.0,4.60
+4,Solar Panel,1.4,0.4,14.00
+3,Solar Panel,1.8,0.6,16.00
+12,Battery,AA,1.2,2.60
+5,Battery,AAA,1.5,2.70
+10,Battery,AA,1.5,3.10
+8,Switch,Push,4.5,4.60
+4,Sensor,motion,5.0,3.90
+4,Sensor,infrared,6.0,4.70
+20,LED Light,red,3.0,150,2.20
+15,LED Light,green,3.0,150,2.20
+18,LED Light,white,4.0,180,2.20
+6,Light Globe,warm,6.5,240,3.50
+8,Light Globe,neutral,7.2,240,3.60
+6,Light Globe,cool,7.6,280,3.70
+5,Buzzer,240,90,4.0,120,5.60
+6,Buzzer,140,80,3.2,140,4.40
+4,LED Light,aqua,3.2,240,4.80
+39,Wire,10.0,20.00
+2,Wire,10.0,12.00
