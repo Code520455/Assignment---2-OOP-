@@ -9,4 +9,20 @@
 # This is my own work as defined by the Academic Integrity Policy
 
 from typing import List, Dict, Tuple
-from circuit_
+from circuit_kit import CircuitKit
+from light import Light
+from switch import Switch
+from wire import Wire
+from battery import Battery
+
+class LightCircuitKit(CircuitKit):
+    '''
+    Class representing a light circuit kit. This class is a subclass of CircuitKit.
+
+    Additional Attributes:
+    - lights (List[Light]): List of lights in the light circuit kit.
+    - switches (List[Switch]): List of switches in the light circuit kit.
+
+    Author: Rahul Saha
+    '''
+    
