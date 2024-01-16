@@ -49,3 +49,9 @@ class LightCircuitKit(CircuitKit):
     def component(self):
         '''Get the doct of components in the circuit kit'''
         return {self._battery[0]: self._battery[1], self._light[0]: self._light[1], self._switch[0]: self._switch[1], self._wire[0]: self._wire[1]}
+
+    @property
+    def light(self) -> Tuple[Light, int]:
+        '''Get the list of lights in the light circuit kit'''
+        return self._switch
+    
