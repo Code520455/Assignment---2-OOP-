@@ -14,3 +14,11 @@ from light_kit import LightCircuitKit
 from circuit_kit import CircuitKit
 from sensor_kit import SensorCircuitKit
 from typing import Optional
+
+class App:
+    def __init__(self):
+        self.comments = load_circuits_data()
+        self.circuit_kits : List[CircuitKit] = load_kit_data()
+        self.home_menu_input()
+
+    
