@@ -21,4 +21,10 @@ class App:
         self.circuit_kits : List[CircuitKit] = load_kit_data()
         self.home_menu_input()
 
-    
+    def home_menu_input(self):
+        while True:
+            print("\nHOME MENU")
+            print("1. COMPONENTS")
+            print("2. CIRCUIT KITS")
+            print("3. CLOSE") 
+            
