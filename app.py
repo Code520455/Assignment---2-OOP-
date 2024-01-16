@@ -17,7 +17,7 @@ from typing import Optional
 
 class App:
     def __init__(self):
-        self.comments = load_circuits_data()
+        self.components = load_circuits_data()
         self.circuit_kits : List[CircuitKit] = load_kit_data()
         self.home_menu_input()
 
@@ -138,3 +138,18 @@ class App:
         wire = Wire("Wire", length, price)
 
         return wire, num
+    
+    def add_battery(self) -> tuple:
+        print("NEW BATTERY")
+        print("Battery sizes are AA or AAA or C or D or E")
+        size = str_input("Please enter battery size:", battery_sizes)
+        print("AA, AAA and C batteries are either 1.2 Volts or 1.5 Volts")
+        print("D batteries are 1.5 Volts")
+        print("E batteries are 9.0 Volts")
+        voltage = float_input("Please enter a voltage that matches the battery size: ")
+        price = float_input("Please enter price: ")
+        num = int_input("Please enter number of Batteries: ")
+        battery = Battery("Battery", size, voltage, price)
+
+        return battery, num
+
