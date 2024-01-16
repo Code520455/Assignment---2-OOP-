@@ -69,4 +69,13 @@ class CircuitKit:
     
     def identify_power_source(self) -> bool:
         '''Check if only one type of power supply is used in the circuit kit.'''
-
+        count_solar_panel = 0
+        count_battery = 0
+        for key in self._components.keys():
+            if isinstance(key, SolarPanel):
+                count_solar_panel += 1
+            elif isinstance(key, Battery):
+                count_battery += 1
+        if count_solar_panel > 0 and count_battery > 0:
+            return False
+        return True
