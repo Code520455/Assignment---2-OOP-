@@ -55,3 +55,13 @@ class LightCircuitKit(CircuitKit):
         '''Get the list of lights in the light circuit kit'''
         return self._switch
     
+    @property
+    def switch(self) -> Tuple[Switch, int]:
+        '''Get the list of switches in the light circuit kit'''
+
+    @property
+    def battery(self) -> Tuple[Battery, int]:
+        '''Get the list of switches in the light circuit kit'''
+        return self._battery
+    
+    
