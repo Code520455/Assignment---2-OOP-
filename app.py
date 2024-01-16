@@ -27,4 +27,23 @@ class App:
             print("1. COMPONENTS")
             print("2. CIRCUIT KITS")
             print("3. CLOSE") 
+
+            choice = int_input("Please enter a number: ",1,3)
+            if choice == 1:
+                self.component_menu()
+            elif choice == 2:
+                self.circuit_kits_menu()
+            else:
+                save_circuits_data(self.components)
+                save_kit_data(self.circuit_kits)
+                print("Data saved to File")
+
+    def component_menu(self):
+        while True:
+            print("n\COMPONENT MENU")
+            print("1. NEW COMPONENT") 
+            print("2. VIEW COMPONENT")
+            print("3. BACK")
+            choice = int_input("Please enter a number:", 1, 3)
+            
             
