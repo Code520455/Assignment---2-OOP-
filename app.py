@@ -64,3 +64,24 @@ class App:
             print("7. SENSOR")
             print("8. BUZZER")
             print("9. BACK")  
+            
+            choice = int_input("Please enter a number:", 1, 9)
+            new_component = None
+            if choice == 1:
+                new_component = self.add_wire()
+            elif choice == 2:
+                new_component = self.add_battery()
+            elif choice == 3:
+                new_component = self.add_solar_panel()
+            elif choice == 4:
+                new_component = self.add_light_globe()
+            elif choice == 5:
+                new_component = self.add_led_light()
+            elif choice == 6:
+                new_component = self.add_switch()
+            elif choice == 7:
+                new_component = self.add_sensor()
+            elif choice == 8:
+                new_component = self.add_buzzer()
+            else:
+                return
