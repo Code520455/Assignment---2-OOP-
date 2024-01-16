@@ -47,4 +47,26 @@ class CircuitKit:
     def components(self) -> Dict[Component, int]:
         '''Get the dict of components in the circuit kit.'''
         pass
+
+    @property
+    def price(self) -> float:
+        pass
     
+    @property
+    def component_count(self) -> int:
+        '''Get the total number of components in the circuit kit'''
+        return sum(self._components.values())
+    
+    def add_component(self, component: Component, quantity: int) -> None:
+        '''Add a component to the circuit kit.'''
+        self._components[component] = quantity
+
+    def remove_component(self, component: Component) -> None:
+        '''Remove a component from the circuit kit.'''
+        if component in self._components:
+            self._components.pop(component)
+
+    
+    def identify_power_source(self) -> bool:
+        '''Check if only one type of power supply is used in the circuit kit.'''
+
