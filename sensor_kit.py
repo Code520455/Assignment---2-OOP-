@@ -29,4 +29,36 @@ class SensorCircuitKit(CircuitKit):
 
     Author: Rahul Saha
     '''
+
+    def __init__(self, name: str, count: int, power_supply: Tuple[PowerSupply, int], sensor: Sensor,
+                 output_component: OutputComponent, wire: Tuple[Wire, int], switch: Switch=None):
+        super().__init__(name, count)
+        self._power_supply = power_supply
+        self._sensor = sensor
+        self._output_component = output_component  # either light or buzzer
+        self._switch = switch
+        self._wire = wire
+
+    @property
+    def components(self) -> Dict[Component, int]:
+        '''Get the dict of components in the circuit kit'''
+        return {self._power_supply[0]: self._power_supply[1], self._sensor: 1, self._output_component: 1, self._wire[0]: self._wire[1], self._switch: 1}
+
+    @property
+    def power_supply(self) -> Tuple[PowerSupply, int]:
+        '''Get the power supply in the sensor circuit kit'''
+        return self._sensor
     
+    @property
+    def sensor(self) -> Sensor:
+        '''Get the sensor in the sensor circuit kit'''
+        return self._sensor
+    
+    @property
+    def switch(self) -> Switch:
+        '''Get the list of switches in the sensor circuit kit'''
+        return self._switch
+    
+    @property
+    def output_component(self) -> OutputComponent:
+        return self._output_component
