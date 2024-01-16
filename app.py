@@ -45,5 +45,11 @@ class App:
             print("2. VIEW COMPONENT")
             print("3. BACK")
             choice = int_input("Please enter a number:", 1, 3)
+            if choice == 1:
+                self.new_component_menu()
+            elif choice == 2:
+                self.view_components()
+            else:
+                return
             
-            
+    
