@@ -81,4 +81,9 @@ class LightCircuitKit(CircuitKit):
         '''Switch type with voltage'''
         print(f"{self.switch[0].voltage}V {self.switch[0].input_type} Switch")
 
+    def check_complete_and_functional(self) -> bool:
+        '''Check if the light circuit kit is complete and functional.'''
+        if self._battery is None or self.switch is None or self._light is None or self._wire is None:
+            return False
+        return True
    
