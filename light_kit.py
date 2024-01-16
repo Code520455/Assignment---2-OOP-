@@ -76,4 +76,9 @@ class LightCircuitKit(CircuitKit):
     def display_number_of_switch(self) -> int:
         '''Get the number of switches'''
         return self.switch[1]
+    
+    def display_switch_type(self) -> None:
+        '''Switch type with voltage'''
+        print(f"{self.switch[0].voltage}V {self.switch[0].input_type} Switch")
+
    
