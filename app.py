@@ -51,5 +51,16 @@ class App:
                 self.view_components()
             else:
                 return
-            
-    
+             
+    def new_component_menu(self):
+        while True:
+            print("\nNEW COMPONENT MENU")
+            print("1. WIRE")
+            print("2. BATTERY")
+            print("3. SOLAR PANEL")
+            print("4. LIGHT GLOBE")
+            print("5. LED LIGHT")
+            print("6. SWITCH")
+            print("7. SENSOR")
+            print("8. BUZZER")
+            print("9. BACK")  
