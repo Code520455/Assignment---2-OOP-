@@ -86,4 +86,13 @@ class LightCircuitKit(CircuitKit):
         if self._battery is None or self.switch is None or self._light is None or self._wire is None:
             return False
         return True
-   
+    
+    def __hash__(self):
+        '''
+        Hash function
+
+        Returns:
+        - Hashing of all variables
+        '''
+        hash_tuple = (self.name, self._light, self._switch, self._wire, self._battery)
+        return hash(hash_tuple)
