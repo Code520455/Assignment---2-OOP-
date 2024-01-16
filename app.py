@@ -160,7 +160,7 @@ class App:
     def add_battery(self) -> tuple:
         print("NEW BATTERY")
         print("Battery sizes are AA or AAA or C or D or E")
-        size = str_input("Please enter battery size:", battery_sizes)
+        size = str_input("Please enter battery size:", Battery.battery_sizes)
         print("AA, AAA and C batteries are either 1.2 Volts or 1.5 Volts")
         print("D batteries are 1.5 Volts")
         print("E batteries are 9.0 Volts")
@@ -186,7 +186,7 @@ class App:
     def add_light_globe(self) -> tuple:
         print("NEW LIGHT GLOBE")
         print("Light Globe Colours:\nwarm, neutral, cool")
-        color = str_input("Please enter light globe colour: ", light_globe_colors)
+        color = str_input("Please enter light globe colour: ", LightGlobe.light_globe_colors)
         print("Voltage is usually between 1 and 12")
         voltage = float_input("Please enter voltage (V): ", 1, 12)
         print("Current is usually between 100 and 1000 milliAmps")
@@ -200,7 +200,7 @@ class App:
     def add_led_light(self) -> tuple:
         print("NEW LED LIGHT")
         print("LED Light Colours:\nwhite, red, green, blue, yellow, orange, pink, aqua, violet")
-        color = str_input("Please enter LED light colour: ", led_light_colors)
+        color = str_input("Please enter LED light colour: ", LEDLight.led_light_colors)
         print("Voltage is usually between 1 and 12")
         voltage = float_input("Please enter voltage (V): ", 1, 12)
         print("Current is usually between 100 and 1000 milliAmps")
@@ -214,7 +214,7 @@ class App:
     def add_switch(self) -> tuple:
         print("NEW SWITCH")
         print("Switch types:\npush, slide, rocker, toggle")
-        type_switch = str_input("Please enter switch type: ", switch_types)
+        type_switch = str_input("Please enter switch type: ", Switch.switch_types)
         print("Voltage is usually between 1 and 12")
         voltage = float_input("Please enter voltage (V): ", 1, 12)
         price = float_input("Please enter price: ")
@@ -226,7 +226,7 @@ class App:
     def add_sensor(self) -> tuple:
         print("NEW SENSOR")
         print("Sensor types:\nlight, motion, infrared, sound, touch, dust, temperature,humidity")
-        type_sensor = str_input("please enter sensor type: ", sensor_types)
+        type_sensor = str_input("please enter sensor type: ", Sensor.sensor_types)
         print("Voltage is usually between 1 and 12")
         voltage = float_input("Please enter voltage (V): ", 1, 12)
         price = float_input("Please enter price: ")
@@ -346,7 +346,8 @@ class App:
         self.components[wire] -= wire_num
         if needSwitch:
             self.components[switch] -= 1
-        kit = SensorCircuitKit("Sensor Circuit", 1, (power_source, source_num), sensor, output_component, (wire, wire_num), switch)
+        kit = SensorCircuitKit("Sensor Circuit", 1, (power_source, source_num), sensor, output_component,
+                               (wire, wire_num), switch)
         self.circuit_kits.append(kit)
         print(f"Added {kit.display_details()}")
 
@@ -394,8 +395,7 @@ class App:
             else:
                 return
 
-
-    def component_input(self, component_type: str, component_type2: str=None) -> Component:
+    def component_input(self, component_type: str, component_type2: str = None) -> Component:
         data = self.get_component_by_type(component_type)
         if component_type2 is not None:
             data += self.get_component_by_type(component_type2)
@@ -413,4 +413,5 @@ class App:
                 data.append(key)
         return data
 
-app = App()
+App()
+
