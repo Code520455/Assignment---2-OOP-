@@ -83,3 +83,19 @@ class CircuitKit:
     def check_complete_and_functional(self) -> bool:
         '''Check if the circuit kit is complete and functional.'''
         pass
+
+
+    def __eq__(self, other: 'CircuitKit') -> bool:
+        '''Compare if two circuit kits are equal.'''
+        return isinstance(other, CircuitKit) and \
+            self.name == other.name and \
+            self._components == other._components
+
+    def display_details(self) -> str:
+        '''Display the details of the circuit kit.'''
+        pass
+
+    def display_csv(self) -> str:
+        '''Display the Circuit kit as a CSV string.'''
+        pass
+
