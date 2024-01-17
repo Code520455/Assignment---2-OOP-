@@ -29,3 +29,5 @@ class CircuitTest(unittest.TestCase):
         light_info = (LightGlobe('Light Globe', 2.0, 2.2, 3.2, "warm"), 3)
         battery_info = (Battery('Battery',"AA", 1.5, 3.1), 4)
         switch_info = (Switch('Switch', 1.0, 1.0, 'push'), 2)
+        wire_info = (Wire('Wire', 1.0, 1.0), 5)
+        light_kit = LightCircuitKit("Light Kit", 3, light_info, switch_info, battery_info,wire_info)
