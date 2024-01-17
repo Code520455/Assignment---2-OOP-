@@ -79,10 +79,10 @@ class ComponentTest(unittest.TestCase):
         '''
         
         sensor = Sensor('Sesnor', 1.0, 1.0, 'movement')
-        self.assertEqual('Sesnor', ssensoresnor.name)
-        self.assertEqual(1.0, sesnor.price)
-        self.assertEqual(1.0, sesnor.voltage)
-        self.assertEqual('movement', sesnor.input_type)
+        self.assertEqual('Sesnor', sensor.name)
+        self.assertEqual(1.0, sensor.price)
+        self.assertEqual(1.0, sensor.voltage)
+        self.assertEqual('movement', sensor.input_type)
 
         sensor2 = sensor.duplicate()
         # equality operator
