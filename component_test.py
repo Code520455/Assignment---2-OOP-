@@ -51,3 +51,18 @@ class ComponentTest(unittest.TestCase):
         expected = '1.0V push Switch $1.00'
         self.assertEqual(expected, switch.display_user_friendly())
 
+    def test_solar_panel(self):
+        '''
+        Test the solar panel class
+        '''
+
+        solar_panel = SolarPanel('Solar Panel', 1.0,1.0,1.0)
+        self.assertEqual('Solar Panel', solar_panel.name)
+        self.assertEqual(1.0, solar_panel.price)
+        self.assertEqual(1.0, solar_panel.voltage)
+        self.assertEqual(solar_panel.current_mA)
+
+        solar_panel2 = solar_panel.duplicate()
+        # equality operator
+        self.assertEqual(solar_panel, solar_panel2)
+        
