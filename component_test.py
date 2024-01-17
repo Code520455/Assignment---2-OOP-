@@ -72,3 +72,25 @@ class ComponentTest(unittest.TestCase):
         # test display user friendly
         expected = '1.0V 1.0mA Solar Panel $1.00'
         self.assertEqual(expected, solar_panel.display_user_friendly()) 
+
+    def test_sensor(self):
+        '''
+        Test the sensor class
+        '''
+        
+        sensor = Sensor('Sesnor', 1.0, 1.0, 'movement')
+        self.assertEqual('Sesnor', ssensoresnor.name)
+        self.assertEqual(1.0, sesnor.price)
+        self.assertEqual(1.0, sesnor.voltage)
+        self.assertEqual('movement', sesnor.input_type)
+
+        sensor2 = sensor.duplicate()
+        # equality operator
+        self.assertEqual(sensor, sensor2)
+
+        # test the CSV parsing
+        self.assertEqual(sensor, sensor.parse_csv('Sensor,1.0,1.0,movement'))
+
+        # test display user friendly
+        expected = '1.0V movement Sensor $1.00'
+        self.assertEqual(expected, sensor.display_user_friendly())
