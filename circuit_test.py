@@ -87,3 +87,33 @@ class CircuitTest(unittest.TestCase):
 
         expected = '3,Sensor Circuit,4,Battery,AA,1.5,3.10,1,Buzzer,90,30,1.0,240,1.00,1,Sensor,motion,3.9,5.00,5,Wire,1.0,1.00,1,Switch,push,1.0,1.00'
         self.assertEqual(expected, kit.display_csv())
+
+        # now kit with light globe instead of buzzer
+        light_info = LightGlobe('Light Globe', 2.0, 2.2, 3.2, "warm")
+        kit = SensorCircuitKit("Sensor Kit", 3, battery_info, sensor_info, light_info, wire_info, switch)
+
+        self.assertEqual(3, kit.count)
+        self.assertEqual(battery_info, kit.power_supply)
+        self.assertEqual(sensor_info, kit.sensor)
+        self.assertEqual(switch, kit.switch)
+        self.assertEqual(25.4, kit.price)
+
+        expected = '3 PIECE SENSOR CIRCUIT WITH 4 X 1.5V AA Battery $3.10 1 X 3.9V motion Sensor $5.00 1 X 2.2V 3.2mA warm Light Globe $2.00 1 X 1.0V push Switch $1.00'
+        self.assertEqual(expected, kit.display_details())
+
+        expected = '3,Sensor Circuit,4,Battery,AA,1.5,3.10,1,Light Globe,warm,2.2,3.2,2.00,1,Sensor,motion,3.9,5.00,5,Wire,1.0,1.00,1,Switch,push,1.0,1.00'
+        self.assertEqual(expected, kit.display_csv())
+
+        # now kit with led light
+        led_light = LEDLight('LED Light', 1.0, 1.0, 1.0, 1.0)
+        kit = SensorCircuitKit("Sensor Kit", 3, battery_info, sensor_info, led_light, wire_info, switch)
+
+        expected = '3 PIECE SENSOR CIRCUIT WITH 4 X 1.5V AA Battery $3.10 1 X 3.9V motion Sensor $5.00 1 X 1.0V 1.0mA 1.0 LED Light $1.00 1 X 1.0V push Switch $1.00'
+        self.assertEqual(expected, kit.display_details())
+
+        expected = '3,Sensor Circuit,4,Battery,AA,1.5,3.10,1,LED Light,1.0,1.0,1.0,1.00,1,Sensor,motion,3.9,5.00,5,Wire,1.0,1.00,1,Switch,push,1.0,1.00'
+        self.assertEqual(expected, kit.display_csv())
+
+
+
+unittest.main()
