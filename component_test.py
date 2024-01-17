@@ -70,4 +70,5 @@ class ComponentTest(unittest.TestCase):
         self.assertEqual(solar_panel, solar_panel.parse_csv('Solar Panel,1.0,1.0,1.0'))
 
         # test display user friendly
-        expected = '1.0V 1.0mA Solar Panel $1.00' 
+        expected = '1.0V 1.0mA Solar Panel $1.00'
+        self.assertEqual(expected, solar_panel.display_user_friendly()) 
