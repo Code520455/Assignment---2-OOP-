@@ -19,4 +19,35 @@ class ComponentTest(unittest.TestCase):
         self.assertEqual('Wire', wire.name)
         self.assertEqual(1.0, wire.price)
         self.assertEqual(1.0, wire.length_mm)
-        
+
+        wire2 = wire.duplicate()
+        # equality operator
+        self.assertEqual(wire, wire2)
+
+        # test the CSV parsing
+        self.assertEqual(wire, wire.parse_csv('Wire,1.0,1.0'))
+
+        # test display user friendly
+        expected = '1.0mm Wire $1.00'
+        self.assertEqual(expected, wire.display_user_friendly())
+
+    def test_switch(self):
+        '''
+        Test the switch class
+        ''' 
+        switch = Switch('Switch', 1.0, 1.0, 'push')
+        self.assertEqual('Switch', switch.name)
+        self.assertEqual(1.0, switch.price)
+        self.assertEqual(1.0, switch.voltage)
+
+        switch2 = switch.duplicate()
+        # equality operator
+        self.assertEqual(switch, switch2)
+
+        # test the CSV parsing
+        self.assertEqual(switch, switch.parse_csv('Switch,1.0,1.0,push'))
+
+        # test display user friendly
+        expected = '1.0V push Switch $1.00'
+        self.assertEqual(expected, switch.display_user_friendly())
+
