@@ -15,4 +15,8 @@ class ComponentTest(unittest.TestCase):
         Test the wire class
         '''
 
+        wire = Wire('Wire', 1.0, 1.0)
+        self.assertEqual('Wire', wire.name)
+        self.assertEqual(1.0, wire.price)
+        self.assertEqual(1.0, wire.length_mm)
         
