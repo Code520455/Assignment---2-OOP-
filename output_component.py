@@ -50,7 +50,7 @@ class OutputComponent(Component, ABC):
         self._current = value
 
     @abstractmethod
-    def parse_csv(self, csv_tring: str) -> 'OutputComponent':
+    def parse_csv(self, csv_string: str) -> 'OutputComponent':
         '''
         Parse a CSV string to recreate an output component object.
 
