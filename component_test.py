@@ -94,3 +94,25 @@ class ComponentTest(unittest.TestCase):
         # test display user friendly
         expected = '1.0V movement Sensor $1.00'
         self.assertEqual(expected, sensor.display_user_friendly())
+
+    def test_light_globes(self):
+        '''
+        Test the light globe class
+        '''
+        light_globe = LightGlobe('Light Globe', 1.0, 1.0, 1.0, 'warm white')
+        self.assertEqual('Light Globe', light_globe.name)
+        self.assertEqual(1.0, light_globe.price)
+        self.assertEqual(1.0, light_globe.voltage)
+        self.assertEqual(1.0, light_globe.current)
+        self.assertEqual('warm white', light_globe.color)
+        light_globe2 = light_globe.duplicate()
+        # equality operator
+        self.assertEqual(light_globe, light_globe2)
+
+        # test the CSV parsing
+        self.assertEqual(light_globe, light_globe.parse_csv('Light Globe,1.0,1.0,1.0,warm white'))
+
+        # test display user friendly
+        expected = '1.0V 1.0mA warm white Light Globe $1.00'
+        self.assertEqual(expected, light_globe.display_user_friendly())
+
