@@ -31,8 +31,7 @@ class Battery(PowerSupply):
     def __init__(self, name: str, size: str, voltage: float, price: float):
         super().__init__(name, price, voltage)
         self._size = size
-        self._voltage = voltage
-
+        
     @property
     def size(self) -> str:
         '''Get the size of the battery'''

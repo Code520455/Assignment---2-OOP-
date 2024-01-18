@@ -45,7 +45,7 @@ class Component(ABC):
         self._price = value
 
     @abstractmethod
-    def parse_csv(self, csv_tring: str):
+    def parse_csv(self, csv_string: str):
         '''
         Parse a CSV string to recreate a component object.
 
