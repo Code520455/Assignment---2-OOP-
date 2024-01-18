@@ -116,3 +116,49 @@ class ComponentTest(unittest.TestCase):
         expected = '1.0V 1.0mA warm white Light Globe $1.00'
         self.assertEqual(expected, light_globe.display_user_friendly())
 
+    def test_buzzer(self):
+        """
+        Test the buzzer class
+        """
+        buzzer = Buzzer('Buzzer', 1.0, 1.0, 1.0, 1.0, 1.0)
+        self.assertEqual('Buzzer', buzzer.name)
+        self.assertEqual(1.0, buzzer.price)
+        self.assertEqual(1.0, buzzer.voltage)
+        self.assertEqual(1.0, buzzer.current)
+        self.assertEqual(1.0, buzzer.frequency)
+        self.assertEqual(1.0, buzzer.sound_pressure)
+
+        buzzer2 = buzzer.duplicate()
+        # equality operator
+        self.assertEqual(buzzer, buzzer2)
+
+        # test the CSV parsing
+        self.assertEqual(buzzer, buzzer.parse_csv('Buzzer,1.0,1.0,1.0,1.0,1.0'))
+
+        # test display user friendly
+        expected = '1.0V 1.0mA 1.0Hz 1.0dB Buzzer $1.00'
+        self.assertEqual(expected, buzzer.display_user_friendly())
+
+    def test_battery(self):
+        """
+        Test the battery class
+        """
+        battery = Battery('Battery', 'AA', 1.0, 1.0)
+        self.assertEqual('Battery', battery.name)
+        self.assertEqual('AA', battery.size)
+        self.assertEqual(1.0, battery.voltage)
+        self.assertEqual(1.0, battery.price)
+
+        battery2 = battery.duplicate()
+        # equality operator
+        self.assertEqual(battery, battery2)
+
+        # test the CSV parsing
+        self.assertEqual(battery, battery.parse_csv('Battery,AA,1.0,1.0'))
+
+        # test display user friendly
+        expected = '1.0V AA Battery $1.00'
+        self.assertEqual(expected, battery.display_user_friendly())
+
+
+unittest.main()
