@@ -8,7 +8,6 @@
 # Description: wire class
 # This is my own work as defined by the Academic Integrity Policy
 
-from  import Component
 from component import Component
 
 class Wire(Component):
