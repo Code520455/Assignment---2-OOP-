@@ -55,7 +55,7 @@ class CircuitKit:
     @property
     def component_count(self) -> int:
         '''Get the total number of components in the circuit kit'''
-        return sum(self._components.values())
+        return sum(self.components.values())
     
     def add_component(self, component: Component, quantity: int) -> None:
         '''Add a component to the circuit kit.'''
@@ -63,15 +63,15 @@ class CircuitKit:
 
     def remove_component(self, component: Component) -> None:
         '''Remove a component from the circuit kit.'''
-        if component in self._components:
-            self._components.pop(component)
+        if component in self.components:
+            self.components.pop(component)
 
     
     def identify_power_source(self) -> bool:
         '''Check if only one type of power supply is used in the circuit kit.'''
         count_solar_panel = 0
         count_battery = 0
-        for key in self._components.keys():
+        for key in self.components.keys():
             if isinstance(key, SolarPanel):
                 count_solar_panel += 1
             elif isinstance(key, Battery):
@@ -89,7 +89,7 @@ class CircuitKit:
         '''Compare if two circuit kits are equal.'''
         return isinstance(other, CircuitKit) and \
             self.name == other.name and \
-            self._components == other._components
+            self.components == other.components
 
     def display_details(self) -> str:
         '''Display the details of the circuit kit.'''
