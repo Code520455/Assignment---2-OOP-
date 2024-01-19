@@ -48,6 +48,12 @@ class OutputComponent(Component, ABC):
     def current(self, value: float) -> None:
         '''Set the current of the output component'''
         self._current = value
+    
+    @abstractmethod
+    def duplicate(self) -> 'OutputComponent':
+        '''Create a duplicate copy of the output component.'''
+        pass
+
 
     @abstractmethod
     def parse_csv(self, csv_string: str) -> 'OutputComponent':
