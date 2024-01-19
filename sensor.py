@@ -29,8 +29,6 @@ class Sensor(InputComponent):
         super().__init__(name, price, voltage)
         self._sensor_type = sensor_type
 
-
-
     @property
     def sensor_type(self):
         return self._sensor_type
