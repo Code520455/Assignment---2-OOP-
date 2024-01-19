@@ -8,7 +8,6 @@
 # Description: component class
 # This is my own work as defined by the Academic Integrity Policy
 
-from multiprocessing import Value
 from output_component import OutputComponent
 from abc import ABC, abstractmethod
 
