@@ -79,8 +79,5 @@ class InputComponent(Component, ABC):
         pass
 
 
-"""
-Class representing a sensor. This class is a subclass of InputComponent.
-"""
 
 
