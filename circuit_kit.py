@@ -34,16 +34,6 @@ class CircuitKit:
         self._count = count
 
     @property
-    def count(self) -> int:
-        '''Get the quantity of the circuit kit'''
-        return self._count
-    
-    @count.setter
-    def count(self, count:int) -> None:
-        '''Set the quantity of the circuit kit'''
-        self._count = count
-
-    @property
     def components(self) -> Dict[Component, int]:
         '''Get the dict of components in the circuit kit.'''
         pass
