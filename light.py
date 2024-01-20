@@ -30,7 +30,12 @@ class Light(OutputComponent, ABC):
     @property
     def color(self) -> str:
         '''Get the colour of the light''' 
-        self._color = Value
+        self._color 
+
+    @color.setter
+    def color(self, value: str) -> None:
+        '''Set the color of the light.'''
+        self._color = value
 
     @abstractmethod
     def duplicate(self) -> 'Light':
