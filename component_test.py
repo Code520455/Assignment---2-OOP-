@@ -1,3 +1,11 @@
+# File: component_test.py
+# Author: RAHUL SAHA
+# ID: 520455
+# Email: 520455@learning.eynesbury.edu.au
+# Description: component_test
+# This is my own work as defined by the Academic Integrity Policy
+
+
 import unittest
 
 from wire import Wire
