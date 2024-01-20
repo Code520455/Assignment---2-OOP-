@@ -124,6 +124,31 @@ class ComponentTest(unittest.TestCase):
         expected = '1.0V 1.0mA warm white Light Globe $1.00'
         self.assertEqual(expected, light_globe.display_user_friendly())
 
+    def test_led_light(self):
+        '''
+        Test the LED light class
+        '''
+
+        led_light = LEDLight('LED Light', 1.0, 1.0, 1.0, 'aqua')
+        self.assertEqual('LED Light', led_light.name)
+        self.assertEqual(1.0, led_light.price)
+        self.assertEqual(1.0, led_light.voltage)
+        self.assertEqual(1.0, led_light.current)
+        self.assertEqual('aqua', led_light.color)
+
+        led_light2 = led_light.duplicate()
+        # equality operator
+        self.assertEqual(led_light, led_light2)
+
+        # test the CSV parsing
+        self.assertEqual(led_light, led_light.parse_csv('LED Light,1.0,1.0,1.0,aqua'))
+
+        # test display user friendly
+        expected = '1.0V 1.0mA aqua LED Light $1.00'
+        self.assertEqual(expected, led_light.display_user_friendly())
+
+
+
     def test_buzzer(self):
         """
         Test the buzzer class
